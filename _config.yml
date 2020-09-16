@@ -15,10 +15,10 @@ author: YejinPark
 
 navbar-links:
   About Me: "aboutme"
-  Blog:
-    - LEARN : "learn"
-    - EXEPERIENCE : "experience"
-    - ENJOY: "enjoy"
+  Post:
+    - 배우고 : "learn"
+    - 경험하고 : "experience"
+    - 도전하고 : "challenge"
 
 
 # --- Logo --- #
