@@ -1,16 +1,14 @@
 ---
 layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+title: Who am I?
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+### Profile
+---
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+안녕하세요!
+한양대학교 ERICA 캠퍼스 소프트웨어학부에 4학년으로 재학중인 **박예진**입니다:smile:.&nbsp;
 
-What else do you need?
+**Python**, **C**를 주로 사용합니다.&nbsp;
 
-### My story
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
