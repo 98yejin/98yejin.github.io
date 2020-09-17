@@ -35,12 +35,43 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
   - 기존 축적된 자료를 바탕으로 스크랩한 데이터를 연관도 순으로 정렬하는 등 자동화
   - Git 형상관리 및 협업 시 필요한 커밋 메세지 규칙등 학습 
   
-  ### 해외 경험
-  ---
   
-  ### 프로젝트
-  ---
+### 해외 경험
+---
+- ICRCV(2019.11.23-2019.11.25)
+  - https://dl.acm.org/doi/abs/10.1145/3378891.3378901
+- KEDGE Business School, Paris(2020.01)
+  - CREATING CUSTOMER VALUE WITH INNOVATIVE TECHNOLOGIES
+  - DISRUPTIVE TECHNOLOGIES
   
-  ### 그 외
-  ---
+ ![myfriends](/assets/img/friends.png)
+  
+### 프로젝트
+---
+제게 의미있는 프로젝트 네가지입니다! 이미지를 클릭하면 유튜브 동영상으로 넘어갑니다(블랙잭 제외).
+각 프로젝트에 대한 자세한 이야기는 [여기](https://98yejin.github.io/learn)에서 봐주세요!
+
+- 블랙잭 게임 만들기(2017.06) - Python
+
+  <img src="/assets/img/py01.PNG" width="460"/> 
+  - Python
+
+- 데이터베이스 관리시스템 만들기(2018.09~2018.12) - Java, MySQL
+[![db](https://img.youtube.com/vi/hVjGqXcbEAQ/0.jpg)](https://youtu.be/hVjGqXcbEAQ)
+  - Java, MySQL
+  
+- 얼굴 인식 기부 로봇 만들기(2019.09~2019.12) - Python, Yolo v3
+[![robot](https://img.youtube.com/vi/KBSQ_PG9xQk/0.jpg)](https://youtu.be/KBSQ_PG9xQk)
+  - Python
+  - Tensorflow
+  - model: Yolo v3
+  
+- 다중 cctv 기반 2d 맵 만들기(2019.09~2020.07) - Python, Yolo v3, OpenGL, Gazebo
+[![grad](https://img.youtube.com/vi/7J96ueAa_U8/0.jpg)](https://youtu.be/7J96ueAa_U8)
+  - Python
+  - Tensorflow
+  - model: Yolo v3
+  - OpenGL
+  - Gazebo
+  
 
