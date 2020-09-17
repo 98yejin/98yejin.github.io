@@ -53,20 +53,27 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
 
 - 블랙잭 게임 만들기(2017.06)
 
+
   <img src="/assets/img/py01.PNG" width="460"/> 
   - Python
 
 - 데이터베이스 관리시스템 만들기(2018.09~2018.12)
+
+
 [![db](https://img.youtube.com/vi/hVjGqXcbEAQ/0.jpg)](https://youtu.be/hVjGqXcbEAQ)
   - Java, MySQL
   
 - 얼굴 인식 기부 로봇 만들기(2019.09~2019.12)
+
+
 [![robot](https://img.youtube.com/vi/KBSQ_PG9xQk/0.jpg)](https://youtu.be/KBSQ_PG9xQk)
   - Python
   - Tensorflow
   - model: Yolo v3
   
 - 다중 cctv 기반 2d 맵 만들기(2019.09~2020.07)
+
+
 [![grad](https://img.youtube.com/vi/7J96ueAa_U8/0.jpg)](https://youtu.be/7J96ueAa_U8)
   - Python
   - Tensorflow
