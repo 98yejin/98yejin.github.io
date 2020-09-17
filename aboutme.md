@@ -63,12 +63,16 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
 
 
 [![db](https://img.youtube.com/vi/hVjGqXcbEAQ/0.jpg)](https://youtu.be/hVjGqXcbEAQ)
+
+
     - Java, MySQL
   
 - 얼굴 인식 기부 로봇 만들기(2019.09~2019.12)
 
 
 [![robot](https://img.youtube.com/vi/KBSQ_PG9xQk/0.jpg)](https://youtu.be/KBSQ_PG9xQk)
+
+
     - Python
     - Tensorflow
     - model: Yolo v3
@@ -77,6 +81,8 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
 
 
 [![grad](https://img.youtube.com/vi/7J96ueAa_U8/0.jpg)](https://youtu.be/7J96ueAa_U8)
+
+
     - Python
     - Tensorflow
     - model: Yolo v3
