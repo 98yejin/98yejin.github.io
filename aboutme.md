@@ -57,7 +57,7 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
   <img src="/assets/img/py01.PNG" width="460"/> 
   
   
-  - Python
+      - Python
 
 - 데이터베이스 관리시스템 만들기(2018.09~2018.12)
 
