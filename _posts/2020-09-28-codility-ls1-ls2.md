@@ -10,9 +10,9 @@ comments: true
 테스트 케이스 추가하는 방법이 다르고, 코딜리티는 시간 복잡도를 보여준다
 그리고 무슨 테스트케이스 틀렸는지 보여줘서 디버깅할때 좋다
 
-### lesson1. Iterations
+## lesson1. Iterations
 
-1. BinaryGap
+### 1. BinaryGap
 Find longest sequence of zeros in binary representation of an integer.
 
 ```python
@@ -30,9 +30,9 @@ def solution(N):
     return answer
 ```
 
-### lesson2. Arrays
+## lesson2. Arrays
 
-1. CyclicRotation
+### 1. CyclicRotation
 Rotate an array to the right by a given number of steps.
 
 ```python
@@ -46,7 +46,7 @@ def solution(A, K):
     return A
 ```
 
-2. OddOccurrencesInArray
+### 2. OddOccurrencesInArray
 Find value that occurs in odd number of elements.
 
 ```python
