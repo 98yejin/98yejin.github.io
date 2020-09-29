@@ -31,5 +31,9 @@ Lesson 3까지만 풀고 백준가서 수학 문제를 풀어야겠다
 
 Find the missing element in a given permutation.
 ```python
-
+def solution(A):
+    lst = [0] * (len(A)+1)
+    for a in A:
+        lst[a-1] = 1
+    return lst.index(0)+1
 ```
