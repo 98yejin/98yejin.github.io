@@ -101,7 +101,7 @@ https://programmers.co.kr/learn/challenges?tab=all_challenges
 
 
 
-
+## 문제 풀이
 
 ### 크레인 인형뽑기 게임 
 ```python
