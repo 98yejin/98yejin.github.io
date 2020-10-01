@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 프로그래머스 코딩테스트 연습 Level 1 Python3 
+title: 프로그래머스 코딩테스트 연습 Level 1 파이썬 
 subtitle: 문제 풀이
 tags: [python, programmers, level 1]
 comments: true
@@ -13,7 +13,7 @@ https://programmers.co.kr/learn/challenges?tab=all_challenges
 
 ## Level 1, Python3
 
-### 크레인 인형뽑기 게임:fire:
+### 크레인 인형뽑기 게임:fire: 
 ```python
 def solution(board, moves):
     answer = 0
@@ -33,6 +33,31 @@ def solution(board, moves):
                 break
     return answer
 ```
+:star: 크레인 작동 시 인형이 집어지지 않는 경우는 없으나 만약 인형이 없는 곳에서 크레인을 작동시키는 경우에는 아무런 일도 일어나지 않습니다. 
+```python 
+if board[len(board)-1][m-1] == 0:
+    break 
+```
+마지막 보드까지 m번째 라인에서 바닥까지(len(board)-1이 마지막) 쭉 0인 경우에 아무런 일도 일어나지않으니까 break 하고 다음으로 넘어가준다!
+
+:star:  모든 인형은 1 x 1 크기의 격자 한 칸을 차지하며 격자의 가장 아래 칸부터 차곡차곡 쌓여 있습니다.
+```python
+for l in range(len(board)):
+.
+.
+.
+            if board[l][m-1] != 0:
+                if len(bucket)>0 and (board[l][m-1] == bucket[len(bucket)-1]) :
+                    del bucket[len(bucket)-1]
+                    board[l][m-1] = 0
+                    answer += 2
+                else:
+                    bucket.append(board[l][m-1])
+                    board[l][m-1] = 0
+```
+board[l][m-1]이 0인 경우에는 인형이 없는거니까 쭉~ 내려가고(if)
+0이 아닌 경우에만 bucket(인형을 담는 바구니)에 인형을 추가해준다(else). 그런데 bucket에 이미 내가 넣을 인형과 똑같은게 있다면, bucket안의 인형은 삭제해주고(del) board[1][m-1]의 인형은 뺀 것으로 처리(0으로 바꿈)해준다. 왜냐면 인형이 2개 이상이면 터지니까(answer +=2)!
+
 ### 두 개 뽑아서 더하기
 ```python
 def solution(numbers):
@@ -90,24 +115,47 @@ def solution(answers):
     
     return [answer[0][0]]
 ```
+:star: 좀 .. 비효율적인 방법으로 풀었다. 다른 문제들도 비효율적이겠지만.. 이건 유난히 더 비효율적으로.. 어차피 완전탐색이니까 수포자들이 찍는 패턴이 담긴 리스트의 길이를 모두 10000으로 만들어줬다..!
+
 ### 체육복:fire:
 ```python
 def solution(n, lost, reserve):
-    distance = [1 for i in range(n)]
+    answer = [1 for i in range(n)]
     for r in reserve:
-        distance[r-1] += 1
+        answer[r-1] += 1
     for l in lost:
-        distance[l-1] -= 1
+        answer[l-1] -= 1
 
     for i in range(n):
-        if i+1<n and distance[i]== 0 and distance[i+1]>1:
-            distance[i+1] -= 1
-            distance[i] = 1
-        elif i>0 and distance[i] == 0 and distance[i-1]>1:
-            distance[i-1] -= 1
-            distance[i] = 1
-    return n-distance.count(0)
+        if i+1<n and answer[i]== 0 and answer[i+1]>1:
+            answer[i+1] -= 1
+            answer[i] = 1
+        elif i>0 and answer[i] == 0 and answer[i-1]>1:
+            answer[i-1] -= 1
+            answer[i] = 1
+    return n-answer.count(0)
 ```
+:star: 처음에는 계속 틀렸는데 
+
+> Greedy algorithM: 그때 그때 최선이라고 생각되는 선택을 하는 것. 최적해가 아닐 때도 있다!
+
+이 개념을 딱 보고 답을 생각해냈다!
+
+:star: 계속 틀렸던 이유는 바로 '여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.' 이 조건! 문제 좀 제대로 읽는 습관을 들여야겠다:disappointed_relieved:.
+
+1. 체육복을 가지고 있는 학생은 1, 없는 학생은 0이라고 가정
+2. 학생의 수만큼 리스트를 만듬(다 가지고 있다고 가정, 1)
+3. 여벌 체육복을 가지고 왔으면 +1
+4. 도난 당했으면 -1
+
+이렇게 하면 학생들이 보유한 체육복수가 담긴 리스트가 만들어지고, 체육복이 없는 학생(answer[i] == 0) 앞뒤로 여벌 체육복을 가진 학생(answer[i-1]>1)이 있는지 없는지 체크!
+있으면 여벌있는 학생한테는 -1, 없는 학생한테는 +1 
+
+그리고 최종적으로 답은 학생의 수 - 체육복이 없는 학생의 수!
+
+
+
+
 ### K번째 수
 ```python
 def solution(array, commands):
@@ -236,6 +284,22 @@ def solution(n):
     print(primes)
     return len(primes)
 ```
+:star: 그냥 하면 시간 초과 걸린다
+:star: '에라토스테네스의 체'를 사용해야 한다
+:star: 알고리즘
+1. 2부터 소수를 구하고자 하는 구간의 모든 수를 나열한다. 그림에서 회색 사각형으로 두른 수들이 여기에 해당한다.
+2. 2는 소수이므로 오른쪽에 2를 쓴다. (빨간색)
+3. 자기 자신을 제외한 2의 배수를 모두 지운다.
+4. 남아있는 수 가운데 3은 소수이므로 오른쪽에 3을 쓴다. (초록색)
+5. 자기 자신을 제외한 3의 배수를 모두 지운다.
+6. 남아있는 수 가운데 5는 소수이므로 오른쪽에 5를 쓴다. (파란색)
+7. 자기 자신을 제외한 5의 배수를 모두 지운다.
+8. 남아있는 수 가운데 7은 소수이므로 오른쪽에 7을 쓴다. (노란색)
+9. 자기 자신을 제외한 7의 배수를 모두 지운다.
+10. 위의 과정을 반복하면 구하는 구간의 모든 소수가 남는다.
+
+출처: https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
+
 ### 수박수박수박수박수박수?
 ```python
 def solution(n):
@@ -294,6 +358,8 @@ def solution(s):
             c += 1
     return answer
 ```
+:star: 이건 공백만 잘 처리하면 된다.. strip으로 공백 없애서 리스트 만들지말고 공백이 나올때마다 초기화해주는 변수(c)를 선언하면 쉽게 해결!
+
 ### 자릿수 더하기
 ```python
 def solution(n):
@@ -321,6 +387,12 @@ def solution(n):
         return -1
     return (x+1)**2
 ```
+:star: 제곱근은 n^(1/2)니까! 파이썬에서 ^는 ** 이니까! n의 제곱근 x를 구해주고 정수인지 실수인지 판별하기위해서 x%1을 한다.
+
+ex. 11.0 % 1 = 0.0 -> 정수
+
+ex. 11.123 % 1 = 0.123 -> 실수
+
 ### 제일 작은 수 제거하기
 ```python
 def solution(arr):
@@ -380,6 +452,9 @@ def solution(numbers, hand):
                 
     return answer
 ```
+:star: 이건 맨하탄 거리를 사용해서 푸는 문제다. 
+> 맨하탄거리는 항상 유클리드 거리보다 크거나 같다. 맨하탄 거리 d는 |a1 - b1| + |a2 - b2| 이다.
+
 ### 최대공약수와 최소공배수
 ```python
 def solution(n, m):
@@ -408,6 +483,9 @@ def solution(n, m):
     answer = [max(divisor),a*b/max(divisor)]
     return answer
 ```
+:star: n과 m의 최소 공배수는 'n * m / 최대공약수'이다. 
+
+
 ### 콜라츠 추측
 ```python
 def solution(num):
