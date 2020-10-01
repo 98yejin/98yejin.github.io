@@ -7,16 +7,31 @@ comments: true
 ---
 
 연휴 겸 코딩테스트 연습!
-4문제 빼고는 다 풀었다.. 졸리니까 나머지 4문제는 내일..(9/30)
 
 프로그래머스 주소:
 https://programmers.co.kr/learn/challenges?tab=all_challenges
 
 ## Level 1, Python3
 
-### 크레인 인형뽑기 게임
+### 크레인 인형뽑기 게임:fire:
 ```python
-pass
+def solution(board, moves):
+    answer = 0
+    bucket = []
+    for m in moves:
+        for l in range(len(board)):
+            if board[len(board)-1][m-1] == 0:
+                break
+            if board[l][m-1] != 0:
+                if len(bucket)>0 and (board[l][m-1] == bucket[len(bucket)-1]) :
+                    del bucket[len(bucket)-1]
+                    board[l][m-1] = 0
+                    answer += 2
+                else:
+                    bucket.append(board[l][m-1])
+                    board[l][m-1] = 0
+                break
+    return answer
 ```
 ### 두 개 뽑아서 더하기
 ```python
@@ -47,13 +62,51 @@ def solution(participant, completion):
             answer = p
     return answer
 ```
-### 모의고사
+### 모의고사:fire:
 ```python
-pass
+def solution(answers):
+    student_1 = [1, 2, 3, 4, 5] * (10000//5)
+    student_2 = [2, 1, 2, 3, 2, 4, 2, 5] * (10000//8)
+    student_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] * (10000//10)
+    
+    score = {1 : 0,
+            2 : 0,
+            3: 0}
+    
+    for i, a in enumerate(answers):
+        if a == student_1[i]:
+            score[1] += 1            
+        if a == student_2[i]:
+            score[2] += 1
+        if a == student_3[i]:
+            score[3] += 1
+    
+    answer = sorted(score.items(), key = lambda x:x[1], reverse = True)
+    
+    if answer[0][1] == answer[1][1] and answer[1][1] == answer[2][1]:
+        return [answer[0][0], answer[1][0], answer[2][0]]
+    if answer[0][1] == answer[1][1]:
+        return [answer[0][0], answer[1][0]]
+    
+    return [answer[0][0]]
 ```
-### 체육복
+### 체육복:fire:
 ```python
-pass
+def solution(n, lost, reserve):
+    distance = [1 for i in range(n)]
+    for r in reserve:
+        distance[r-1] += 1
+    for l in lost:
+        distance[l-1] -= 1
+
+    for i in range(n):
+        if i+1<n and distance[i]== 0 and distance[i+1]>1:
+            distance[i+1] -= 1
+            distance[i] = 1
+        elif i>0 and distance[i] == 0 and distance[i-1]>1:
+            distance[i-1] -= 1
+            distance[i] = 1
+    return n-distance.count(0)
 ```
 ### K번째 수
 ```python
@@ -222,7 +275,7 @@ def solution(n):
             answer += i
     return answer
 ```
-### 이상한 문자 만들기
+### 이상한 문자 만들기:fire:
 ```python
 def solution(s):
     c = 0
@@ -281,9 +334,51 @@ def solution(arr):
 def solution(num):
     return "Even" if num%2 == 0 else "Odd"
 ```
-### 키패드 누르기
+### 키패드 누르기:fire:
 ```python
-pass
+def solution(numbers, hand):
+    answer = ''
+    left = '*'
+    right = '#'
+    value = {1: (0, 0),
+            2: (0, 1),
+            3: (0, 2),
+            4: (1, 0),
+            5: (1, 1),
+            6: (1, 2),
+            7: (2, 0),
+            8: (2, 1),
+            9: (2, 2),
+            '*': (3, 0),
+            0: (3, 1),
+            '#': (3, 2)
+            }
+    
+    for num in numbers:
+        if num == 1 or num == 4 or num == 7:
+            answer += 'L'
+            left = num
+        elif num == 3 or num == 6 or num == 9:
+            answer += 'R'
+            right = num
+        else:
+            left_distance = abs(value[num][0] - value[left][0]) + abs(value[num][1] - value[left][1])
+            right_distance = abs(value[num][0] - value[right][0]) + abs(value[num][1] - value[right][1])
+            if left_distance == right_distance:
+                if hand == 'left':
+                    answer += 'L'
+                    left = num
+                else:
+                    answer += 'R'
+                    right = num
+            elif left_distance < right_distance:
+                answer += 'L'
+                left = num
+            elif left_distance > right_distance:
+                answer += 'R'
+                right = num
+                
+    return answer
 ```
 ### 최대공약수와 최소공배수
 ```python
