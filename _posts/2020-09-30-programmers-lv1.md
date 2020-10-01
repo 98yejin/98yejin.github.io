@@ -103,8 +103,7 @@ https://programmers.co.kr/learn/challenges?tab=all_challenges
 
 
 
-
-### 크레인 인형뽑기 게임 [top](#목차)
+### 크레인 인형뽑기 게임 
 ```python
 def solution(board, moves):
     answer = 0
@@ -149,7 +148,7 @@ for l in range(len(board)):
 board[l][m-1]이 0인 경우에는 인형이 없는거니까 쭉~ 내려가고(if)
 0이 아닌 경우에만 bucket(인형을 담는 바구니)에 인형을 추가해준다(else). 그런데 bucket에 이미 내가 넣을 인형과 똑같은게 있다면, bucket안의 인형은 삭제해주고(del) board[1][m-1]의 인형은 뺀 것으로 처리(0으로 바꿈)해준다. 왜냐면 인형이 2개 이상이면 터지니까(answer +=2)!
 
-### 두 개 뽑아서 더하기[top](#목차)
+### 두 개 뽑아서 더하기
 ```python
 def solution(numbers):
     answer = []
@@ -161,7 +160,7 @@ def solution(numbers):
     answer.sort()
     return answer
 ```
-### 완주하지 못한 선수[top](#목차)
+### 완주하지 못한 선수
 ```python
 def solution(participant, completion):
     answer = ''
@@ -178,7 +177,7 @@ def solution(participant, completion):
             answer = p
     return answer
 ```
-### 모의고사[top](#목차)
+### 모의고사
 ```python
 def solution(answers):
     student_1 = [1, 2, 3, 4, 5] * (10000//5)
@@ -208,7 +207,7 @@ def solution(answers):
 ```
 :star: 좀 .. 비효율적인 방법으로 풀었다. 다른 문제들도 비효율적이겠지만.. 이건 유난히 더 비효율적으로.. 어차피 완전탐색이니까 수포자들이 찍는 패턴이 담긴 리스트의 길이를 모두 10000으로 만들어줬다..!
 
-### 체육복[top](#목차)
+### 체육복
 ```python
 def solution(n, lost, reserve):
     answer = [1 for i in range(n)]
@@ -247,7 +246,7 @@ def solution(n, lost, reserve):
 
 
 
-### K번째 수[top](#목차)
+### K번째 수
 ```python
 def solution(array, commands):
     answer = []
@@ -258,7 +257,7 @@ def solution(array, commands):
         answer.append(ans[c[2]-1])
     return answer
 ```
-### 2016년[top](#목차)
+### 2016년
 ```python
 import datetime
 
@@ -267,7 +266,7 @@ def solution(a, b):
     answer = day[datetime.date(2016,a,b).weekday()]
     return answer
 ```
-### 가운데 글자 가져오기[top](#목차)
+### 가운데 글자 가져오기
 ```python
 def solution(s):
     ln = len(s)
@@ -276,7 +275,7 @@ def solution(s):
     if len(s) % 2 != 0:
         return s[int(ln//2)]
 ```
-### 같은 숫자는 싫어[top](#목차)
+### 같은 숫자는 싫어
 ```python
 def solution(arr):
     answer = []
@@ -289,7 +288,7 @@ def solution(arr):
         # elif a
     return answer
 ```
-### 나누어 떨어지는 숫자 배열[top](#목차)
+### 나누어 떨어지는 숫자 배열
 ```python
 def solution(arr, divisor):
     answer = []
@@ -301,7 +300,7 @@ def solution(arr, divisor):
         answer = [-1]
     return answer
 ```
-### 두 정수 사이의 합[top](#목차)
+### 두 정수 사이의 합
 ```python
 def solution(a, b):
     if b>=a:
@@ -316,7 +315,7 @@ def solution(a, b):
             answer += b
     return answer
 ```
-### 문자열 내 마음대로 정렬하기[top](#목차)
+### 문자열 내 마음대로 정렬하기
 ```python
 def solution(strings, n):
     answer = []
@@ -331,7 +330,7 @@ def solution(strings, n):
     
     return answer
 ```
-### 문자열 내 p와 y의 개수[top](#목차)
+### 문자열 내 p와 y의 개수
 ```python
 def solution(s):
     answer = True
@@ -339,12 +338,12 @@ def solution(s):
         answer = False
     return answer
 ```
-### 문자열 내림차순으로 배치하기[top](#목차)
+### 문자열 내림차순으로 배치하기
 ```python
 def solution(s):
     return ''.join(sorted(s, reverse=True))
 ```
-### 문자열 다루기 기본[top](#목차)
+### 문자열 다루기 기본
 ```python
 def solution(s):
     if len(s) != (4 or 6):
@@ -354,14 +353,14 @@ def solution(s):
             return False
     return True
 ```
-### 서울에서 김서방 찾기[top](#목차)
+### 서울에서 김서방 찾기
 ```python
 def solution(seoul):
     for i in range(len(seoul)):
         if seoul[i] == "Kim":
             return "김서방은 %d에 있다"%i
 ```
-### 소수 찾기[top](#목차)
+### 소수 찾기
 ```python
 def solution(n):
     a = [False,False] + [True]*(n-1)
@@ -393,7 +392,7 @@ def solution(n):
 
 출처: https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4
 
-### 수박수박수박수박수박수[top](#목차)
+### 수박수박수박수박수박수
 ```python
 def solution(n):
     answer = ''
@@ -404,13 +403,13 @@ def solution(n):
             answer += '박'
     return answer
 ```
-### 문자열을 정수로 바꾸기[top](#목차)
+### 문자열을 정수로 바꾸기
 ```python
 def solution(s):
     answer = int(s)
     return answer
 ```
-### 시저 암호[top](#목차)
+### 시저 암호
 ```python
 def solution(s, n):
     s = list(s)
@@ -421,7 +420,7 @@ def solution(s, n):
             s[i] = chr((ord(s[i])-ord('a')+n)%26 +ord('a'))
     return ''.join(s)
 ```
-### 약수의 합[top](#목차)
+### 약수의 합
 ```python
 def solution(n):
     answer = 0
@@ -432,7 +431,7 @@ def solution(n):
             answer += i
     return answer
 ```
-### 이상한 문자 만들기[top](#목차)
+### 이상한 문자 만들기
 ```python
 def solution(s):
     c = 0
@@ -453,26 +452,26 @@ def solution(s):
 ```
 :star: 이건 공백만 잘 처리하면 된다.. strip으로 공백 없애서 리스트 만들지말고 공백이 나올때마다 초기화해주는 변수(c)를 선언하면 쉽게 해결!
 
-### 자릿수 더하기[top](#목차)
+### 자릿수 더하기
 ```python
 def solution(n):
     n = str(n)
     return sum([int(n[i]) for i in range(len(n))])
 ```
-### 자연수 뒤집어 배열로 만들기[top](#목차)
+### 자연수 뒤집어 배열로 만들기
 ```python
 def solution(n):
     n = str(n)[::-1]
     answer = [int(n[i]) for i in range(len(n))]
     return answer
 ```
-### 정수 내림차순으로 배치하기[top](#목차)
+### 정수 내림차순으로 배치하기
 ```python
 def solution(n):
     n = str(n)
     return int(''.join(sorted([n[i] for i in range(len(n))], reverse = True)))
 ```
-### 정수 제곱근 판별[top](#목차)
+### 정수 제곱근 판별
 ```python
 def solution(n):
     x = n ** (1/2)
@@ -486,7 +485,7 @@ ex. 11.0 % 1 = 0.0 -> 정수
 
 ex. 11.123 % 1 = 0.123 -> 실수
 
-### 제일 작은 수 제거하기[top](#목차)
+### 제일 작은 수 제거하기
 ```python
 def solution(arr):
     if len(arr) < 2:
@@ -494,12 +493,12 @@ def solution(arr):
     arr.remove(min(arr))
     return arr
 ```
-### 짝수와 홀수[top](#목차)
+### 짝수와 홀수
 ```python
 def solution(num):
     return "Even" if num%2 == 0 else "Odd"
 ```
-### 키패드 누르기[top](#목차)
+### 키패드 누르기
 ```python
 def solution(numbers, hand):
     answer = ''
@@ -548,7 +547,7 @@ def solution(numbers, hand):
 :star: 이건 맨하탄 거리를 사용해서 푸는 문제다. 
 > 맨하탄거리는 항상 유클리드 거리보다 크거나 같다. 맨하탄 거리 d는 |a1 - b1| + |a2 - b2| 이다.
 
-### 최대공약수와 최소공배수[top](#목차)
+### 최대공약수와 최소공배수
 ```python
 def solution(n, m):
     answer = [1, 1]
@@ -579,7 +578,7 @@ def solution(n, m):
 :star: n과 m의 최소 공배수는 'n * m / 최대공약수'이다. 
 
 
-### 콜라츠 추측[top](#목차)
+### 콜라츠 추측
 ```python
 def solution(num):
     answer = 0
@@ -597,12 +596,12 @@ def solution(num):
         return -1
     return answer
 ```
-### 평균 구하기[top](#목차)
+### 평균 구하기
 ```python
 def solution(arr):
     return sum(arr)/len(arr)
 ```
-### 하샤드 수[top](#목차)
+### 하샤드 수
 ```python
 def solution(x):
     y = str(x)
@@ -616,12 +615,12 @@ def solution(x):
     
     return False
 ```
-### 핸드폰 번호 가리기[top](#목차)
+### 핸드폰 번호 가리기
 ```python
 def solution(phone_number):
     return (len(phone_number)-4) * '*' + phone_number[len(phone_number)-4:]
 ```
-### 행렬의 덧셈[top](#목차)
+### 행렬의 덧셈
 ```python
 def solution(arr1, arr2):
     answer = arr1[:]
@@ -630,17 +629,17 @@ def solution(arr1, arr2):
             answer[i][j]+=arr2[i][j]
     return answer
 ```
-### x만큼 간격이 있는 n개의 숫자[top](#목차)
+### x만큼 간격이 있는 n개의 숫자
 ```python
 def solution(x, n):
     return [x+(x*i) for i in range(n)]
 ```
-### 직사각형 별찍기[top](#목차)
+### 직사각형 별찍기
 ```python
 a, b = map(int, input().strip().split(' '))
 print(('*'*a+'\n')*b)
 ```
-### 예산[top](#목차)
+### 예산
 ```python
 def solution(d, budget):
     answer = 0
@@ -653,7 +652,7 @@ def solution(d, budget):
             answer += 1
     return answer
 ```
-### 비밀지도[top](#목차)
+### 비밀지도
 ```python
 def solution(n, arr1, arr2):
     answer = []
@@ -664,7 +663,7 @@ def solution(n, arr1, arr2):
         
     return answer
 ```
-### 실패율[top](#목차)
+### 실패율
 ```python
 def solution(N, stages):
     answer = {}
@@ -682,7 +681,7 @@ def solution(N, stages):
     
     return [s[0] for s in sol]
 ```
-### 다트 게임[top](#목차)
+### 다트 게임
 ```python
 def solution(dartResult):
     calc = []
