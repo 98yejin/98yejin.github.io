@@ -2,7 +2,7 @@
 layout: post
 title: IBM 클라우더스 - 첫번째 오픈토크
 subtitle: 해커톤 공략 실전편, 추천시스템 개발 경험담
-tags: [ibm, clouders]
+tags: [ibm, clouders, opentalk]
 comments: true
 ---
 
