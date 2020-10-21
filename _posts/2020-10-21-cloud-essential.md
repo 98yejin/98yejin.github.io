@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IBM 클라우더스 - 클라우드 에센셜 코스 내용 정리
+title: IBM 클라우더스 - 클라우드 에센셜 코스 모듈1 내용 정리
 subtitle: IBM Cloud Portfolio, Infra, run applications and workloads, some of the services
 tags: [ibm, clouders, cloud, cloud essential]
 comments: true
@@ -196,5 +196,161 @@ Q. 왜 멀티 클라우드를 사용하는가?
 
 Q 멀티 클라우드 도입 전략
 
-1.  
+1.자동화(automation)
+
+2. 가시성(Visibility)
+
+3. 규제, 컴플라이언스 정책(Governance)
+
+#### [쿠버네티스](https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/)
+
+위에서 Hybrid cloud를 설명할 때 컨테이너와 쿠버네티스를 언급했다. 
+쿠버네티스가 무엇인지 알아보기위해 배포의 짧은 역사를 알아보자.
+
+![deployment](https://d33wubrfki0l68.cloudfront.net/26a177ede4d7b032362289c6fccd448fc4a91174/eb693/images/docs/container_evolution.svg)
+
+1. Traditional Deployment : 초기 조직은 애플리케이션을 물리 서버에서 실행했었다. 한 물리 서버에서 여러 애플리케이션의 리소스 한계를 정의할 방법이 없었기에, 리소스 할당의 문제가 발생했다. 예를 들어 물리 서버 하나에서 여러 애플리케이션을 실행하면, 리소스 전부를 차지하는 애플리케이션 인스턴스가 있을 수 있고, 결과적으로는 다른 애플리케이션의 성능이 저하될 수 있었다. 이에 대한 해결책은 서로 다른 여러 물리 서버에서 각 애플리케이션을 실행하는 것이 있다. 그러나 이는 리소스가 충분히 활용되지 않는다는 점에서 확장 가능하지 않았으므로, 물리 서버를 많이 유지하기 위해서 조직에게 많은 비용이 들었다.
+
+2. Virtualized Deployment : 그 해결책으로 가상화가 도입되었다. 이는 단일 물리 서버의 CPU에서 여러 가상 시스템 (VM)을 실행할 수 있게 한다. 가상화를 사용하면 VM간에 애플리케이션을 격리하고 애플리케이션의 정보를 다른 애플리케이션에서 자유롭게 액세스 할 수 없으므로, 일정 수준의 보안성을 제공할 수 있다.
+가상화를 사용하면 물리 서버에서 리소스를 보다 효율적으로 활용할 수 있으며, 쉽게 애플리케이션을 추가하거나 업데이트할 수 있고 하드웨어 비용을 절감할 수 있어 더 나은 확장성을 제공한다. 가상화를 통해 일련의 물리 리소스를 폐기 가능한(disposable) 가상 머신으로 구성된 클러스터로 만들 수 있다.
+각 VM은 가상화된 하드웨어 상에서 자체 운영체제를 포함한 모든 구성 요소를 실행하는 하나의 완전한 머신이다.
+
+3. Container Deployment : 컨테이너는 VM과 유사하지만 격리 속성을 완화하여 애플리케이션 간에 운영체제(OS)를 공유한다. 그러므로 컨테이너는 가볍다고 여겨진다. VM과 마찬가지로 컨테이너에는 자체 파일 시스템, CPU, 메모리, 프로세스 공간 등이 있다. 기본 인프라와의 종속성을 끊었기 때문에, 클라우드나 OS 배포본에 모두 이식할 수 있다.
+
+컨테이너는 다음과 같은 장점이 있다.
+
+- 기민한 애플리케이션 생성과 배포: VM 이미지를 사용하는 것에 비해 컨테이너 이미지 생성이 보다 쉽고 효율적임.
+- 지속적인 개발, 통합 및 배포: 안정적이고 주기적으로 컨테이너 이미지를 빌드해서 배포할 수 있고 (이미지의 불변성 덕에) 빠르고 쉽게 롤백할 수 있다.
+- 개발과 운영의 관심사 분리: 배포 시점이 아닌 빌드/릴리스 시점에 애플리케이션 컨테이너 이미지를 만들기 때문에, 애플리케이션이 인프라스트럭처에서 분리된다.
+- 가시성은 OS 수준의 정보와 메트릭에 머무르지 않고, 애플리케이션의 헬스와 그 밖의 시그널을 볼 수 있다.
+- 개발, 테스팅 및 운영 환경에 걸친 일관성: 랩탑에서도 클라우드에서와 동일하게 구동된다.
+- 클라우드 및 OS 배포판 간 이식성: Ubuntu, RHEL, CoreOS, 온-프레미스, 주요 퍼블릭 클라우드와 어디에서든 구동된다.
+- 애플리케이션 중심 관리: 가상 하드웨어 상에서 OS를 실행하는 수준에서 논리적인 리소스를 사용하는 OS 상에서 애플리케이션을 실행하는 수준으로 추상화 수준이 높아진다.
+- 느슨하게 커플되고, 분산되고, 유연하며, 자유로운 마이크로서비스: 애플리케이션은 단일 목적의 머신에서 모놀리식 스택으로 구동되지 않고 보다 작고 독립적인 단위로 쪼개져서 동적으로 배포되고 관리될 수 있다.
+- 리소스 격리: 애플리케이션 성능을 예측할 수 있다.
+- 자원 사용량: 리소스 사용량: 고효율 고집적.
+
+![Kubernetes](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/200px-Kubernetes_logo_without_workmark.svg.png)
+
+Q. 그래서 쿠버네티스가 왜 필요한데?
+
+A1. 쿠버네티스(Kubernetes, 쿠베르네테스, "K8s")는 컨테이너화된 애플리케이션의 자동 디플로이, 스케일링 등을 제공하는 관리시스템으로, 오픈 소스 기반이다. 목적은 여러 클러스터의 호스트 간에 애플리케이션 컨테이너의 배치, 스케일링, 운영을 자동화하기 위한 플랫폼을 제공하기 위함이다.[3] 도커를 포함하여 일련의 컨테이너 도구들과 함께 동작한다.(출처: [위키백과](https://ko.wikipedia.org/wiki/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4)
+
+A2. 컨테이너는 애플리케이션을 포장하고 실행하는 좋은 방법이다. 프로덕션 환경에서는 애플리케이션을 실행하는 컨테이너를 관리하고 가동 중지 시간이 없는지 확인해야한다. 예를 들어 컨테이너가 다운되면 다른 컨테이너를 다시 시작해야한다. 이 문제를 시스템에 의해 처리한다면 더 쉽지 않을까? 그것이 쿠버네티스가 필요한 이유이다! 쿠버네티스는 분산 시스템을 탄력적으로 실행하기 위한 프레임 워크를 제공한다. 애플리케이션의 확장과 장애 조치를 처리하고, 배포 패턴 등을 제공한다. 예를 들어, 쿠버네티스는 시스템의 카나리아 배포를 쉽게 관리 할 수 있다.
+
+쿠버네티스는 전통적인, 모든 것이 포함된 Platform as a Service(PaaS)가 아니다. 쿠버네티스는 하드웨어 수준보다는 컨테이너 수준에서 운영되기 때문에, PaaS가 일반적으로 제공하는 배포, 스케일링, 로드 밸런싱과 같은 기능을 제공하며, 사용자가 로깅, 모니터링 및 알림 솔루션을 통합할 수 있다. 하지만, 쿠버네티스는 모놀리식(monolithic)이 아니어서, 이런 기본 솔루션이 선택적이며 추가나 제거가 용이하다. 쿠버네티스는 개발자 플랫폼을 만드는 구성 요소를 제공하지만, 필요한 경우 사용자의 선택권과 유연성을 지켜준다.
+
+> 쿠버네티스는 오류가 발생한 컨테이너를 제거 및 재시작 하며 현재 상태를 요구된 상태로 일치시키려고 끊임없이 확인하는 과정을 수행합니다. 직접 장애를 복구하는 일련의 과정을 생략할 수 있어 부담이 줄어들고, 정상 상태로 더 빨리 복구할 수 있게 되어 시스템 전체의 신뢰성이 향상되었습니다. - <우리는 불편함을 어떻게 마주하고 있는가> 포스팅 중
+[우아한형제들 기술 블로그](https://woowabros.github.io/experience/2020/10/06/thiiing-system-improvement.html)에 따르면 쿠버네티스의 자가치유 기능을 바탕으로 서비스 안정성이 증가했다고 한다. 
+
+
+#### On-Premise
+
+사내, 직접 설치 
+
+### IBM Cloud locations and Availability Zones🍚
+
+#### Where is the IBM Cloud?🧇
+[IBM Data center map](https://www.ibm.com/cloud/data-centers/#datacentermap)
+
+> IBM Cloud is a global cloud with hosting locations across the globe in addition to the hardware and software offerings which allow you to host a private cloud in your own datacenters
+
+IBM Cloud는 자체 데이터 센터에서 사설 클라우드를 호스팅 할 수있는 하드웨어 및 소프트웨어 오퍼링 외에도 전 세계에 호스팅 위치가있는 글로벌 클라우드다.
+
+### IBM Cloud 'As a Service' summary and offerings·🧀
+
+#### Iaas, PaaS and SaaS explained🧂
+
+1.[IaaS](https://ko.wikipedia.org/wiki/%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A1%9C%EC%84%9C%EC%9D%98_%EC%9D%B8%ED%94%84%EB%9D%BC%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%B2%98) 
+- I : infrastructure
+- aaS : as-a-Service 
+
+서버, 스토리지, 네트워크를 필요에 따라 인프라 자원을 사용할 수 있게 클라우드 서비스를 제공하는 형태이다. 대표적인 기술로는 서버 가상화, 데스크톱 가상화 등이 있다.
+
+ex. 네이버클라우드플랫폼 Compute, 아마존 EC2(Elastic Cloud Compute),
+마이크로소프트 애저, 오픈스택 Rackspace 클라우드에서 유래됨,
+구글 컴퓨트 엔진, RightScale,
+FlexCloud 등, IBM의 베어메탈 클라우드,
+대표적인 하이퍼바이저: ESXi, KVM, XenServer...
+
+2. [PaaS](https://ko.wikipedia.org/wiki/%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A1%9C%EC%84%9C%EC%9D%98_%ED%94%8C%EB%9E%AB%ED%8F%BC)
+- P : Platform
+- aaS : as-a-Service
+
+일반적으로 앱을 개발하거나 구현할 때, 관련 인프라를 만들고 유지보수하는 복잡함 없이 애플리케이션을 개발, 실행, 관리할 수 있게 하는 플랫폼을 제공한다.구글이나 네이버, 다음 등에서 제공하는 공개 API가 PaaS의 일종이다. 구글의 '앱 엔진'이나 Bungee Labs 의 '번지커넥트' 등은 직접 온라인 서비스를 개발에서 배포, 관리 까지 할 수 있는 플랫폼을 제공하고 있다.
+
+
+3. SaaS (Software as a Service)는 구독 모델을 기반으로하는 인터넷을 통해 애플리케이션을 제공하는 방법이다. 소프트웨어는 서비스 공급자가 호스팅한다. 소비자는 서비스 공급자가 모든 작업을 수행하므로 애플리케이션 호스팅이나 인프라, 소프트웨어 종속성 또는 소프트웨어 자체 유지에 대해 걱정할 필요가 없다. 
+
+
+### IBM Cloud account types and support options🍗
+
+#### [IBM Cloud Account Types](https://courses.cognitiveclass.ai/courses/course-v1:IBMDeveloperSkillsNetwork+CC0103EN+2020_T1/courseware/407a9f86565c44189740699636b4fb85/f52155c5007c413c901754dec3d58b9f/?child=first)🥫
+
+세 가지 계정 유형
+> Lite accounts are free of charge and allow you to explore IBM Cloud and create and use services that have a 'Lite' service plan. The account never expires (although you can deactivate it, should you choose to do so) but any Lite services that you create will automatically deprovision after 30 days, if they have not been used. Lite accounts are good for exploring IBM Cloud and for some limited development work. 
+- 라이트
+> Many users choose to move to a PAYGO account. This is simply done by entering credit card information to your account. You can still use all of the free of charge Lite services and you will also gain access to some services with 'Free' plan. Most importantly, you will unlock the whole IBM Cloud catalog and be able to create any service you want to. Your payment card will be automatically billed once a month and you will be charged for the services that you have used.
+- 종량제 (PAYGO)
+> Customers who consume larger amounts of services on IBM Cloud (typically $USD 1K and above), may choose to purchase a Subscription. With a subscription, a commitment to a certain spend is being made and so IBM Cloud provides discounted pricing based on the size of the subscription. 
+- 신청
+
+
+#### Support in IBM Cloud🧁
+
+계정 별로 어떤 서비스를 받을 수 있는지 [소개](https://courses.cognitiveclass.ai/courses/course-v1:IBMDeveloperSkillsNetwork+CC0103EN+2020_T1/courseware/407a9f86565c44189740699636b4fb85/f52155c5007c413c901754dec3d58b9f/?child=first)
+
+> The Free tier level of support applies to Lite Accounts only. To access other tiers of support, you must upgrade your account to a PAYGO or Subscription account.
+- 라이트
+> The Basic tier of support is provided to all PAYGO and Subscription customers by default and is free of charge.
+- 종량제 (PAYGO)
+> Customers can upgrade to paid-for Advanced Support and are encouraged to do so where they need guaranteed response times to tickets which they raise. Typically, customers who are running a small number of business critical, production workloads or who are undertaking non-production development work which is time critical will upgrade to Advanced Support.
+- 신청
+
+
+### The Cost Estimator Tool🥠
+
+#### The Cost Estimator Tool🍫
+
+IBM Cloud 내에서 서비스 인스턴스 또는 환경을 작성하기 전에 비용을 추정해야하는 경우 Cost Estimator 도구를 사용할 수 있다. 이 도구는 IBM Cloud 카탈로그를 통해 서비스 사양을 만든 다음 해당 사양에 대한 예상 비용을 제공하는 사용하기 쉬운 도구다. 도구 내에서 필요한만큼 견적을 저장할 수 있으며 pdf 형식으로 견적을 다운로드 할 수 있다. 
+
+
+### IBM Cloud supports cloud native🍱
+
+#### Cloud Native🍺
+
+IBM - [클라우드 네이티브란 무엇입니까?](https://cloud.ibm.com/docs/cloud-native?topic=cloud-native-overview&locale=ko)
+
+클라우드 컴퓨팅 환경은 가상화된 공유 풀에서 리소스를 온디맨드로 할당하고 해제하는 동적인 환경이다. 이러한 탄력적 환경은 기존의 온프레미스 데이터 센터에서 일반적으로 사용되는 초기 리소스 할당에 비해 보다 유연한 확장 옵션을 지원한다.
+
+- 애플리케이션 또는 프로세스는 소프트웨어 컨테이너에서 분리된 단위로 실행된다.
+- 프로세스는 리소스 사용을 개선하고 유지보수 비용을 줄이기 위해 중앙 오케스트레이션 프로세스에 의해 관리된다.
+- 애플리케이션 또는 서비스(마이크로서비스)는 명시적으로 설명된 종속 항목과 느슨하게 결합된다.
+
+MS - [클라우드 네이티브 정의](https://docs.microsoft.com/ko-kr/dotnet/architecture/cloud-native/definition)
+
+CNCF [공식 클라우드 네이티브 정의](https://github.com/cncf/foundation/blob/master/charter.md)
+
+- 클라우드 네이티브 기술은 조직이 퍼블릭, 프라이빗 및 하이브리드 클라우드와 같은 현대적이고 동적 인 환경에서 확장 가능한 애플리케이션을 구축하고 실행할 수 있도록 지원한다. 컨테이너, 서비스 메시, 마이크로 서비스, 변경 불가능한 인프라 및 선언적 API가 이러한 접근 방식을 잘 보여준다.
+- 이러한 기술은 탄력적이고 관리 가능하며 관찰 가능한 느슨하게 결합 된 시스템을 가능하한다. 강력한 자동화와 결합되어 엔지니어는 최소한의 노력으로 자주 예측 가능하게 영향을 많이 미치는 변경을 수행 할 수 있다.
+
+Cloud Native Computing Foundation은 오픈 소스, 공급 업체 중립 프로젝트의 에코 시스템을 육성하고 유지함으로써이 패러다임의 채택을 촉진하고자합니다.
+
+
+### Identity and Access Management(IAM)🍛 
+
+#### IAM🥢
+
+> Identity and Access Management (IAM) is a major component of IBM Cloud and provides the means for an Account Owner to grant access rights to IAM-enabled services to other users that they 'invite' to their account. 
+
+Identity and Access Management (IAM)는 IBM Cloud의 주요 구성 요소이며 계정 소유자가 자신의 계정에 '초대'한 다른 사용자에게 IAM 사용 서비스에 대한 액세스 권한을 부여 할 수있는 수단을 제공한다. 
+
+> IAM means that access rights can be granted in a highly granular way, either directly to users and services or indirectly via Access Groups.
+
+IAM은 액세스 권한이 사용자 및 서비스에 직접적으로 또는 액세스 그룹을 통해 간접적으로 매우 세분화 된 방식으로 부여 될 수 있음을 의미한다.
+
+#### Granting Other User Access🎂
+
+
+
 
