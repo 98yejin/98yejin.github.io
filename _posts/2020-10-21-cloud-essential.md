@@ -6,7 +6,13 @@ tags: [ibm, clouders, cloud, cloud essential]
 comments: true
 ---
 
+
 # [클라우드 에센셜(Cloud essential)](https://courses.cognitiveclass.ai/courses/course-v1:IBMDeveloperSkillsNetwork+CC0103EN+2020_T1/course/)
+
+[인증서, 뱃지로 이동!](#코스를-완료하면-받을-수-있는-인증서와-뱃지)
+
+
+동영상 말고 [ibm learn 페이지](https://www.ibm.com/cloud/learn)에서도 참고하면서 보면 좋다.
 
 ## 코스 구성🥪
 
@@ -351,6 +357,12 @@ IAM은 액세스 권한이 사용자 및 서비스에 직접적으로 또는 액
 
 #### Granting Other User Access🎂
 
+
+### 코스를 완료하면 받을 수 있는 인증서와 뱃지
+
+![certificate](https://github.com/98yejin/98yejin.github.io/blob/master/assets/img/1020/certificate1.PNG?raw=true)
+
+![badge](https://github.com/98yejin/98yejin.github.io/blob/master/assets/img/1020/badge1.PNG?raw=true)
 
 
 
