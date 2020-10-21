@@ -138,9 +138,9 @@ IBM Cloud Public provides the option to consume resources in a multi-tenant envi
 
 IBM Cloud Public는 고객들의 workload는 독립되어있지만, 단일 물리 머신(single physical machine) 내에 공존하는 multi-tenant 환경에서 리소스를 소비하는 옵션을 제공한다.
 
-#### HybridCloud  
+#### HybridCloud🍣
 
-장점💜
+장점
 1. Interoperable 상호운용성
 2. Scalable 확장성
 3. Portable 이식성
@@ -167,7 +167,34 @@ Private env.에 있는 ERP 영역을 public env.로 옮기기 위해, linux cont
 위의 예시에서 들었던 ERP application(on-premises)에서, private env.에 ERP layer를 계속 유지할 수 있듯이.. Hybrid computing에서는
 특정 리소스에 계속 방화벽을 유지할 수 있다. 그리고 on-premises, public cloud의 장점을 계속 가지고 가면서 application과 workload를 계속 실행한다.
 
-### Multicloud
+#### Multicloud🦪
+
+> Multicloud is a cloud computing approach made up of 2 or more cloud environments
+
+멀티클라우드는 2개 이상의 클라우드 환경으로 구성된 클라우드 컴퓨팅접근 방식이다. 
+여기서 중요한 점은, Hybrid cloud와 Multi cloud가 완전히 같은 것은 아니라는 것이다.
+
+>Hybrid cloud implies that your workloads a working together across multiple clouds - so
+interoperability and portability of your workloads.
+
+하이브리드 클라우드는 워크로드가 여러 클라우드에서 함께 작동한다는 것을 의미하므로 워크로드의 상호운용성과 이식성이 향상된다.
+
+>Multicloud doesn't have that same requirement, but we are seeing that, you know, a lot of
+enterprise users and customers are using multi and hybrid cloud strategy together.
+
+멀티클라우드에는 동일한 요구사항이 없지만, 많은 엔터프라이즈 사용자와 고객이 멀티 클라우드와 하이브리드 클라우드 전략을 함께 사용하고 있다.
+컨테이너와 쿠베르네테스 기술의 성장이 정말로 멀티클라우드의 성장을 가능하게 했다.
+
+Q. 왜 멀티 클라우드를 사용하는가?
+
+1. 멀티클라우드 전략은 애플리케이션 워크로드 중 하나의 클라우드가 작동을 멈추더라도 애플리케이션을 지원하는 또 다른 클라우드가 계속 작동하도록 보장한다.
+
+2. 더 나은 사용자 경험을 제공한다. 예를들어, 전 세계에 다양한 사용자가 있다고 가정하자. 가장 가까운 클라우드로 라우팅하면 지연 시간을 줄이고 더 나은 사용자 경험을 제공할 수 있다. 
+
+3. Specific integrations. 퍼블릭 클라우드에 저장하고 싶지 않지만 통합을 구축해야하는 민감한 방화벽 데이터가 있다고 가정하자. 멀티 클라우드 접근 방식을 활용하면 개인(private) 측에서 워크로드를 구축 하고, 개인적이고 민감한 고객 데이터를 활용할 수있다.
 
 
+Q 멀티 클라우드 도입 전략
+
+1.  
 
