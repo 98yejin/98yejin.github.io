@@ -16,11 +16,10 @@ author: YejinPark
 navbar-links:
   About Me: "aboutme"
   Tags : "tags"
-  WHY?:
-    - 배우고 : "learn"
-    - 경험하고 : "experience"
-    - 도전하고 : "challenge"
-
+#  WHY?:
+#    - 배우고 : "learn"
+#    - 경험하고 : "experience"
+#    - 도전하고 : "challenge"
 
 # --- Logo --- #
 
