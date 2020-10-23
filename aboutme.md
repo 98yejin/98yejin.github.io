@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Who am I?
-subtitle: 저는 성실함이 무기인 개발자입니다.
 ---
 
 ### Profile
@@ -14,6 +13,7 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
 - email: o0o2211915@gmail.com
 - blog: https://98yejin.github.io/aboutme/
 
+<!--
 ### 이력 및 학력
 ---
 - 2014.03 ~ 2017.02 진양고등학교
@@ -88,5 +88,7 @@ subtitle: 저는 성실함이 무기인 개발자입니다.
     - model: Yolo v3
     - OpenGL
     - Gazebo
+    
+-->
   
 
