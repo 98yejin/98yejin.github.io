@@ -139,6 +139,8 @@ main함수다. 위에서 지정한 마우스 s(start coordinate), e(end coordina
 
 ## 실행 동영상🍕
 
-보여주기 위한거기에.. 영어가 어떻게 인식되는지도 출력하기위해 print(trans(txt))의 위에 print(txt)를 추가했다.
+보여주기 위한거니까.. 영어가 어떻게 인식되는지도 출력하기위해 print(trans(txt))의 위에 print(txt)를 추가했다
 
-동영상은.. 집에가서 업로드..
+[![Video Label](http://img.youtube.com/vi/wYYoG-9jo3A/0.jpg)](https://youtu.be/wYYoG-9jo3A)
+
+클릭하면 동영상으로 이동!
