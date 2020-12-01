@@ -103,7 +103,11 @@ A. 아니다. 졸업한다. 그런데 공부가 부족하다고 느끼고 있어
 <br><br>
 
 <p align="center">
+  
+  
   <img src="https://github.com/98yejin/98yejin.github.io/blob/master/assets/img/meme/9f7ejbb6eaag1.jpg?raw=true"" width="400"/>
+  
+  
 </p>
 
 <br><br>
@@ -145,15 +149,6 @@ A. 아니다. 졸업한다. 그런데 공부가 부족하다고 느끼고 있어
 깃랩 자체에있는 데브옵스 기능에 대해서도 말씀해주시고 yml 스크립트나 CI/CD에 대한 이야기도 조금 나누었다. 새로운 프로젝트에서 클라우드 환경!!을 사용하게 된다는 것도.. 이것저것 다양하게 이야기를 했다.
 
 <br><br>
-
-### 3. 새로운 프로젝트
-
-밥먹고 와서 이어서 
-
-
-
-
-
 
 
 
