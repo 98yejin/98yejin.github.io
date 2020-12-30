@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [회사] 프로젝트 개발 진행 상황 중간 공유 후기
+title: 회사 - 프로젝트 개발 진행 상황 중간 공유 후기
 tags: [est, project]
 comments: true
 ---
